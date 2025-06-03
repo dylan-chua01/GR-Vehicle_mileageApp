@@ -1,23 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    Image,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View
+  ActivityIndicator,
+  Alert,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGMNPpvTOTKQLPOmxmRgFvtZA7d1iMjnCiw6BLNd1xfORXeNzDOPUJK-4eFnzVRyqQnA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYpcOt5uGNB6F2Be5OMfXgNdUevW3Nva7yUDz5qJhBZfLjMUaraobiRR9NkA2_Jbl9/exec';
 
 // XMLHttpRequest method for better Google Apps Script compatibility
-const submitDataXHR = (dataToSend) => {
+const submitDataXHR = (dataToSend: { Date: string; CarPlate: string; Mileage: number; Agent: string; }) => {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     
@@ -91,7 +91,7 @@ export default function App() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: any, value: any) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
